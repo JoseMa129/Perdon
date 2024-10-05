@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Podemos hablar?</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        #btnSi {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="content" class="text-center">
+        <h1>¿Podemos hablar 🥺?</h1>
+        <div class="mt-4">
+            <button id="btnSi" class="btn btn-success me-3" onclick="showThankYou()">Sí</button>
+            <button id="btnNo" class="btn btn-danger" onclick="growYesButton()">No</button>
+        </div>
+    </div>
+
+    <!-- Pantalla de agradecimiento oculta -->
+    <div id="thankYouScreen" class="text-center d-none">
+        <h1>Muchas gracias, podemos hablar ahora🥺</h1>
+    </div>
+
+    <script>
+        let btnSi = document.getElementById('btnSi');
+        let sizeMultiplier = 1;
+
+        function growYesButton() {
+            sizeMultiplier += 0.5;
+            btnSi.style.transform = `scale(${sizeMultiplier})`;
+        }
+
+        function showThankYou() {
+            document.getElementById('content').classList.add('d-none');
+            document.getElementById('thankYouScreen').classList.remove('d-none');
+        }
+    </script>
+</body>
+</html>
